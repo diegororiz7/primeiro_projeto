@@ -1,9 +1,9 @@
 import React from "react";
-import PerfilApp from './components/PerfilApp';
+import PaisesApp from "./components/PaisesApp";
 
 export default function App(){
   return(
-    <PerfilApp />
+    <PaisesApp />
   );
 }
 
