@@ -1,9 +1,9 @@
 import React from "react";
-import PaisesApp from "./components/PaisesApp";
+import NbaApp from "./components/NbaApp";
 
 export default function App(){
   return(
-    <PaisesApp />
+    <NbaApp />
   );
 }
 

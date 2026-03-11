@@ -28,9 +28,11 @@ const styles = StyleSheet.create({
   },
 
   image:{
-    width:70,
-    height:70,
-    marginRight:15
+    width:60,
+    height:60,
+    marginRight:15,
+    alignContent: 'center',
+    alignSelf: 'center'
   },
 
   time:{
