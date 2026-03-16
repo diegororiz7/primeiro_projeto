@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
   card: {
     backgroundColor: '#ffffff',
-    width: '90%',
+    width: '25%',
     borderRadius: 15,
     padding: 20,
     marginBottom: 15,
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   status: {
     fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 10
+    marginBottom: 10,
   },
 
   botao: {
