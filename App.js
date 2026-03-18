@@ -1,9 +1,9 @@
 import React from "react";
-import PlayListApp from "./components/PlayListApp";
+import SeriesApp from "./components/SeriesApp";
 
 export default function App(){
   return(
-    <PlayListApp />
+    <SeriesApp />
   );
 }
 
