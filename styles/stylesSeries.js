@@ -6,15 +6,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f4f6f8',
-    //padding: 20,
+    padding: 20
   },
 
   titulo: {
     fontSize: 26,
     fontWeight: 'bold',
     marginBottom: 15,
-    textAlign: 'center',
-    alignSelf: 'center'
+    textAlign: 'center'
   },
 
   card: {
@@ -23,33 +22,26 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 12,
     elevation: 3,
-    width: '50%',
-    justifyContent: 'center',
-    alignSelf: 'center'
+    width: '100%',
+    maxWidth: 700
   },
 
   imagem: {
-    width: 100,
+    width: '100%',
     height: 150,
     borderRadius: 10,
     marginBottom: 10,
-    resizeMode: "contain",
-    justifyContent: 'center',
-    alignSelf: 'center'
+    backgroundColor: '#eee'
   },
 
   nomeSerie: {
     fontSize: 18,
-    fontWeight: 'bold',
-    justifyContent: 'center',
-    alignSelf: 'center'
+    fontWeight: 'bold'
   },
 
   anoSerie: {
     fontSize: 16,
-    color: '#555',
-    justifyContent: 'center',
-    alignSelf: 'center'
+    color: '#555'
   },
 
   visto: {
@@ -61,20 +53,17 @@ const styles = StyleSheet.create({
   acoes: {
     flexDirection: 'row',
     marginTop: 10,
-    gap: 15,
-    justifyContent: 'center',
-    alignSelf: 'center'
+    gap: 15
   },
 
   icone: {
-    fontSize: 22,
-    justifyContent: 'center',
-    alignSelf: 'center'
+    fontSize: 22
   },
 
   form: {
     marginTop: 10,
-    justifyContent: 'center',
+    width: '100%',
+    maxWidth: 500,
     alignSelf: 'center'
   },
 
@@ -83,9 +72,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 10,
     marginBottom: 10,
-    elevation: 2,
-    justifyContent: 'center',
-    alignSelf: 'center'
+    elevation: 2
   }
 
 });
