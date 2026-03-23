@@ -1,9 +1,10 @@
 import React, {useState, useRef} from 'react';
 import {View,Text,Image,FlatList,
-    Pressable,TouchableOpacity} from 'react-native';
+    Pressable,TouchableOpacity,
+    TouchableHighlight} from 'react-native';
 import styles from '../styles/stylesInstagram';
 
-export default function App(){
+export default function InstagramApp(){
 
   const [posts, setPosts] = useState([
     {
@@ -38,13 +39,121 @@ export default function App(){
     }
   ]);
 
-  return(
+  const curtirPost = (id) => {
+    const novaLista = posts.map(post => {
+      if(post.id === id){
+        if(post.curtido && item.likes > 0){
+          return {...post, curtido: false, likes: post.likes - 1}
+        }else{
+          return {...post, curtido: true, likes: post.likes + 1}
+        }
+      }
+      return post;
+    })
+    setPosts(novaLista);
+  }
 
-    <View style={styles.container}>
+  const comentarPost = (id) => {
+    const novaLista = posts.map(post => {
+      if(post.id === id){
+        return {...post, comentarios: post.comentarios + 1}
+      }
+      return post;
+    })
+    setPosts(novaLista);
+  }
 
+  const compartilharPost = (id) => {
+    const novaLista = posts.map(post => {
+      if(post.id === id){
+        return {...post, shares: posts.shares + 1}
+      }
+      return post;
+    })
+    setPosts(novaLista);
+  }
+
+  const resetarCurtidas = (id) => {
+    const novaLista = posts.map(post => {
+      if(post.id === id){
+        return{...post, curtido:  false, likes: 0}
+      }
+      return post;
+    })
+    setPosts(novaLista);
+  }
+
+  const ultimoClique = useRef(null);
+
+  const curtirDuplo = (id) => {
+    const momento = Date.now();
+
+    if(ultimoClique.current && momento - ultimoClique.current < 300){
+      curtirPost(id);
+    }
+
+    ultimoClique.current = momento;
+  }
+
+  const renderItem = ({item}) => (
+    <View style = {styles.post}>
+      <Text style = {styles.usuario}>👤{item.usuario}</Text>
+
+      <Pressable
+        onPress = {() => curtirDuplo(item.id)}
+      >
+        <Image
+          style = {styles.imagem}
+          source = {{uri: item.imagem}}
+        />
+      </Pressable>
+
+      <View style = {styles.acoes}>
+        <Pressable
+          onPress = {() => curtirPost(item.id)}
+          onLongPress={() => resetarCurtidas(item.id)}
+          delayLongPress={700}
+          style = {({pressed}) =>[
+            styles.botao,
+            pressed && styles.botaoPressionado
+          ]}
+        >
+          <Text style = {styles.textoBotao}>
+            {item.curtido ? '❤️ Curtido' : '🤍 Curtir'}
+          </Text>
+        </Pressable>
+
+        <TouchableHighlight
+          onPress={() => comentarPost(item.id)}
+          underlayColor={'blue'}
+        >
+          <Text style = {styles.textoBotao}>💬Comentar</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          onPress={() => compartilharPost(item.id)}
+          underlayColor={'blue'}
+        >
+          <Text style = {styles.textoBotao}>🔁Compartilhar</Text>
+        </TouchableHighlight>
+      </View>
+
+      <Text>❤️ {item.likes} curtidas</Text>
+      <Text>💬 {item.comentarios} comentários</Text>
+      <Text>🔁 {item.shares} compartilhamentos</Text>
+      <Text style = {styles.descricao}>{item.descricao}</Text>
     </View>
-
   );
 
+  return(
+    <View style={styles.container}>
+      <FlatList
+        data = {posts}
+        keyExtractor={(item) => item.id}
+        renderItem = {renderItem}
+        contentContainerStyle = {{alignItems: 'center'}}
+      />
+    </View>
+  );
 }
 

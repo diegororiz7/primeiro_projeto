@@ -1,9 +1,9 @@
 import React from "react";
-import SeriesApp from "./components/SeriesApp";
+import InstagramApp from "./components/InstagramApp";
 
 export default function App(){
   return(
-    <SeriesApp />
+    <InstagramApp />
   );
 }
 
