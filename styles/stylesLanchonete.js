@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
