@@ -7,7 +7,6 @@ container:{
   flexGrow:1,
   padding:20,
   backgroundColor:'#f2f2f2',
-  justifyContent:'center'
 },
 
 titulo:{

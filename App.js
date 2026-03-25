@@ -1,9 +1,9 @@
 import React from "react";
-import InstagramApp from "./components/InstagramApp";
+import TemperaturaApp from "./components/TemperaturaApp";
 
 export default function App(){
   return(
-    <InstagramApp />
+    <TemperaturaApp />
   );
 }
 
