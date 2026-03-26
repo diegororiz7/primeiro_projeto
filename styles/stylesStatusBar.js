@@ -7,16 +7,16 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#fff',
   },
-  title: {
+  titulo: {
     fontSize: 22,
     marginVertical: 10,
     textAlign: 'center',
   },
-  text: {
+  texto: {
     color: '#fff',
     textAlign: 'center',
   },
-  button: {
+  botao: {
     padding: 12,
     marginBottom: 10,
     borderRadius: 8,
@@ -27,10 +27,10 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     borderRadius: 8,
   },
-  indicator: {
+  indicador: {
     marginVertical: 15,
   },
-  task: {
+  tarefa: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: '#333',
@@ -38,15 +38,15 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 8,
   },
-  taskText: {
+  textoTarefa: {
     color: '#fff',
     flex: 1,
   },
-  actions: {
+  acoes: {
     flexDirection: 'row',
     gap: 10,
   },
-  smallButton: {
+  botaoPequeno: {
     padding: 8,
     borderRadius: 6,
   },
