@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginHorizontal: 16,
+    paddingTop: StatusBar.currentHeight
   },
   item: {
     backgroundColor: 'orange',
@@ -37,11 +38,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginVertical: 10,
     textAlign: 'center',
-  },
-  carrinho: {
-    borderTopWidth: 1,
-    paddingTop: 10,
-    marginTop: 10,
   },
 });
 
