@@ -1,9 +1,10 @@
 import React from "react";
-import TemperaturaApp from "./components/TemperaturaApp";
+import NavegacaoApp from "./components/NavegacaoApp";
 
 export default function App(){
   return(
-    <TemperaturaApp />
+    <NavegacaoApp/>
   );
 }
 
+ 
