@@ -1,9 +1,9 @@
 import React from "react";
-import NavegacaoApp from "./components/NavegacaoApp";
+import GavetaNavegacaoApp from "./components/GavetaNavegacaoApp";
 
 export default function App(){
   return(
-    <NavegacaoApp/>
+    <GavetaNavegacaoApp/>
   );
 }
 
