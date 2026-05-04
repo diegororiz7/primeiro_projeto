@@ -6,6 +6,7 @@ import {
   Button,
   Image,
   Alert,
+  ActivityIndicator,
   StyleSheet
 } from 'react-native';
 import styles from '../styles/stylesPokemon';
@@ -37,9 +38,78 @@ export default function PokemonApp() {
   const [pokemonSelecionado, setPokemonSelecionado] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const buscarPokemon = async (idPokemon) => {
+    try{
+      setLoading(true);
+      const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${idPokemon}`);
+      const json = await resposta.json();
+      const pokemon = {
+        nome: json.name,
+        habilidade: json.base_experience,
+        peso: json.weight,
+        altura: json.height,
+        img: json.sprites.other['official-artwork'].front_default
+      }
+      setPokemonSelecionado(pokemon);
+    }catch{
+      Alert.alert('Erro','Não foi possível carregar as informações do Pokemón!');
+    }finally{
+      setLoading(false);
+    }
+  }
+
   return (
     <View style={styles.container}>
+      <ScrollView showsVerticalScrollIndicator = {false}>
+        <View style = {styles.topo}>
+          <Text style = {styles.topoTitulo}>
+            Lista de Pokémons
+          </Text>
+        </View>
 
+        {loading && (
+          <ActivityIndicator />
+        )}
+
+        {pokemonSelecionado && (
+          <View style = {styles.pokemonCaixa}>
+            <Text style = {styles.pokemonNome}>
+              Nome: {pokemonSelecionado.nome.toUpperCase()}
+            </Text>
+
+            <Text style = {styles.pokemonExperiencia}>
+              Habilidade: {pokemonSelecionado.habilidade}
+            </Text>
+
+            <Text style = {styles.pokemonPeso}>
+              Peso: {pokemonSelecionado.peso}
+            </Text>
+
+            <Text style = {styles.pokemonAltura}>
+              Altura: {pokemonSelecionado.altura}
+            </Text>
+
+            <Image
+              style = {styles.pokemonImagem}
+              source = {{uri: pokemonSelecionado.img}}
+            />
+          </View>
+        )}
+
+        {pokemonsLista.map(pokemon => (
+          <View key = {pokemon.id} style = {styles.cardConteudo}>
+            <Text style = {styles.cardTitulo}>
+              {pokemon.nome}
+            </Text>
+
+            <Button
+              title = 'Exibir dados'
+              color = '#120A8F'
+              onPress={() => buscarPokemon(pokemon.id)}
+            />
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 }

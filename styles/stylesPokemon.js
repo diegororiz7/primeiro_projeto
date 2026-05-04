@@ -52,6 +52,9 @@ const styles = StyleSheet.create({
   pokemonPeso: {
     fontSize: 18,
   },
+  pokemonAltura: {
+    fontSize: 18,
+  },
   pokemonImagem: {
     width: 150,
     height: 150,

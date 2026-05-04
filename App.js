@@ -1,9 +1,9 @@
 import React from "react";
-import ComprasApp from "./components/ComprasApp";
+import PokemonApp from "./components/PokemonApp";
 
 export default function App(){
   return(
-    <ComprasApp/>
+    <PokemonApp/>
   );
 }
 
