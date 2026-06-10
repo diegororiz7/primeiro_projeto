@@ -1,9 +1,9 @@
 import React from "react";
-import MoedaApp from "./components/MoedaApp";
+import CEPApp from './components/CEPApp';
 
 export default function App(){
   return(
-    <MoedaApp/>
+    <CEPApp />
   );
 }
 
