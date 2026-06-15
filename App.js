@@ -1,9 +1,9 @@
 import React from "react";
-import CEPApp from './components/CEPApp';
+import ClimaApp from "./components/ClimaApp";
 
 export default function App(){
   return(
-    <CEPApp />
+    <ClimaApp />
   );
 }
 
