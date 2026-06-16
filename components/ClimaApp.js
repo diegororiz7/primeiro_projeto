@@ -26,7 +26,7 @@ export default function ClimaApp(){
     function traduzir(desc){
         const d = desc.toLowerCase();
 
-        if(d.includes('sunny')) return 'Ensolarado ☀️';
+        if(d.includes('sunny') || d.includes('clear')) return 'Ensolarado ☀️';
         if(d.includes('partly')) return 'Parcialmente nublado ⛅';
         if(d.includes('cloud')) return 'Nublado ☁️';
         if(d.includes('overcast')) return 'Encoberto 🌥️';
@@ -40,7 +40,7 @@ export default function ClimaApp(){
         const d = desc.toLowerCase();
 
         if(d.includes('rain')) return '#3498db';
-        if(d.includes('sunny')) return '#f1c40f';
+        if(d.includes('sunny') || d.includes('clear')) return '#f1c40f';
         if(d.includes('cloud') || d.includes('overcast')) return '#95a5a6';
 
         return '#bdc3c7';
@@ -60,7 +60,7 @@ export default function ClimaApp(){
             const info = {
                 cidade: nomeCidade,
                 temp: parseFloat(json.current_condition[0].temp_C),
-                descOrginal: descricaoOriginal,
+                descOriginal: descricaoOriginal,
                 desc: traduzir(descricaoOriginal),
                 data: new Date().toLocaleString()
             }
@@ -120,7 +120,7 @@ export default function ClimaApp(){
             {dados && (                    
                 <View style = {[
                     styles.resultado,
-                    {backgroundColor: corClima(dados.descOrginal)}
+                    {backgroundColor: corClima(dados.descOriginal)}
                 ]}>        
                     <Text style = {styles.text}>
                         📍 {dados.cidade}    
